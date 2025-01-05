@@ -3,6 +3,7 @@ import { ArrowLeftRight, DollarSign } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const CURRENCIES = {
   USD: "US Dollar",
@@ -33,6 +34,16 @@ const CurrencyConverter = () => {
   const [toCurrency, setToCurrency] = useState<string>('EUR');
   const [result, setResult] = useState<string>('');
   const { toast } = useToast();
+
+  // Mock data for the chart - in a real app, this would come from an API
+  const chartData = [
+    { date: '2024-01', rate: 0.82 },
+    { date: '2024-02', rate: 0.83 },
+    { date: '2024-03', rate: 0.85 },
+    { date: '2024-04', rate: 0.84 },
+    { date: '2024-05', rate: 0.86 },
+    { date: '2024-06', rate: 0.85 },
+  ];
 
   const handleConvert = async () => {
     if (!amount || isNaN(Number(amount))) {
@@ -143,6 +154,45 @@ const CurrencyConverter = () => {
       {/* Google Ads Container */}
       <div className="mt-8 w-full h-[250px] bg-gray-100 rounded flex items-center justify-center">
         <p className="text-gray-500">Google Ads Placeholder</p>
+      </div>
+
+      {/* Currency Rate Chart */}
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold text-primary mb-4">Exchange Rate History</h2>
+        <div className="w-full h-[300px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="date" 
+                stroke="#666"
+                tick={{ fill: '#666' }}
+              />
+              <YAxis 
+                stroke="#666"
+                tick={{ fill: '#666' }}
+                domain={['auto', 'auto']}
+              />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: 'white',
+                  border: '1px solid #ccc'
+                }}
+              />
+              <Line 
+                type="monotone" 
+                dataKey="rate" 
+                stroke="#78184e" 
+                strokeWidth={2}
+                dot={{ fill: '#78184e' }}
+                activeDot={{ r: 8 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <p className="text-sm text-gray-500 mt-2 text-center">
+          6-month exchange rate history for {fromCurrency}/{toCurrency}
+        </p>
       </div>
     </div>
   );
