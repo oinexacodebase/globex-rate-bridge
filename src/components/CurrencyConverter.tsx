@@ -4,6 +4,29 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 
+const CURRENCIES = {
+  USD: "US Dollar",
+  EUR: "Euro",
+  GBP: "British Pound",
+  JPY: "Japanese Yen",
+  AUD: "Australian Dollar",
+  CAD: "Canadian Dollar",
+  CHF: "Swiss Franc",
+  CNY: "Chinese Yuan",
+  HKD: "Hong Kong Dollar",
+  NZD: "New Zealand Dollar",
+  SEK: "Swedish Krona",
+  KRW: "South Korean Won",
+  SGD: "Singapore Dollar",
+  NOK: "Norwegian Krone",
+  MXN: "Mexican Peso",
+  INR: "Indian Rupee",
+  RUB: "Russian Ruble",
+  ZAR: "South African Rand",
+  BRL: "Brazilian Real",
+  TRY: "Turkish Lira"
+};
+
 const CurrencyConverter = () => {
   const [amount, setAmount] = useState<string>('');
   const [fromCurrency, setFromCurrency] = useState<string>('USD');
@@ -68,11 +91,13 @@ const CurrencyConverter = () => {
           <select
             value={fromCurrency}
             onChange={(e) => setFromCurrency(e.target.value)}
-            className="w-24 p-2 border rounded"
+            className="w-36 p-2 border rounded"
           >
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
+            {Object.entries(CURRENCIES).map(([code, name]) => (
+              <option key={code} value={code}>
+                {code} - {name}
+              </option>
+            ))}
           </select>
 
           <Button
@@ -87,11 +112,13 @@ const CurrencyConverter = () => {
           <select
             value={toCurrency}
             onChange={(e) => setToCurrency(e.target.value)}
-            className="w-24 p-2 border rounded"
+            className="w-36 p-2 border rounded"
           >
-            <option value="EUR">EUR</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
+            {Object.entries(CURRENCIES).map(([code, name]) => (
+              <option key={code} value={code}>
+                {code} - {name}
+              </option>
+            ))}
           </select>
         </div>
 
