@@ -63,7 +63,8 @@ const GlobalCoverage = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              );
+            })}
           </div>
 
           <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
