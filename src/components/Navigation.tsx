@@ -1,4 +1,4 @@
-import { DollarSign } from 'lucide-react';
+import { DollarSign, User, Mail, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
@@ -12,11 +12,19 @@ const Navigation = () => {
               <span className="ml-2 text-white text-xl font-bold">CurrencyConverter</span>
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link to="/" className="text-white hover:text-gray-200">Home</Link>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200">
-              GitHub
-            </a>
+          <div className="flex items-center space-x-6">
+            <Link to="/" className="text-white hover:text-gray-200 flex items-center gap-2">
+              <User className="h-4 w-4" />
+              <span>About Us</span>
+            </Link>
+            <Link to="/" className="text-white hover:text-gray-200 flex items-center gap-2">
+              <Mail className="h-4 w-4" />
+              <span>Contact</span>
+            </Link>
+            <Link to="/" className="text-white hover:text-gray-200 flex items-center gap-2">
+              <Flag className="h-4 w-4" />
+              <span>Report</span>
+            </Link>
           </div>
         </div>
       </div>
