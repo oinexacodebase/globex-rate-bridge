@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, DollarSign, User, Mail, Flag } from 'lucide-react';
+import { Menu, X, User, Mail, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -18,7 +18,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <DollarSign className="h-8 w-8 text-white" />
+              <img 
+                src="/globex-logo.png" 
+                alt="Globex Logo" 
+                className="h-8 w-8"
+              />
               <span className="ml-2 text-white text-xl font-bold">Globex</span>
             </Link>
           </div>
