@@ -20,9 +20,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#78184e",
-          light: "#8f1f5d",
-          dark: "#61143e",
+          DEFAULT: "#113d13",
+          light: "#1a4d1a",
+          dark: "#0d2f0d",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -34,7 +34,7 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
+          DEFAULT: "#113d13",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
