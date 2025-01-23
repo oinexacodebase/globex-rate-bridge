@@ -29,12 +29,14 @@ const LiveRates = () => {
       };
     },
     refetchInterval: 60000, // Refresh every minute
-    onError: () => {
-      toast({
-        title: "Error fetching rates",
-        description: "Unable to fetch latest rates. Please try again later.",
-        variant: "destructive",
-      });
+    meta: {
+      onError: () => {
+        toast({
+          title: "Error fetching rates",
+          description: "Unable to fetch latest rates. Please try again later.",
+          variant: "destructive",
+        });
+      },
     },
   });
 
