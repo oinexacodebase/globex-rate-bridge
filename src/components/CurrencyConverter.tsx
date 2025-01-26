@@ -184,9 +184,9 @@ const CurrencyConverter = () => {
               <Line 
                 type="monotone" 
                 dataKey="rate" 
-                stroke="#78184e" 
+                stroke="#16a34a" 
                 strokeWidth={2}
-                dot={{ fill: '#78184e' }}
+                dot={{ fill: '#16a34a' }}
                 activeDot={{ r: 8 }}
               />
             </LineChart>
