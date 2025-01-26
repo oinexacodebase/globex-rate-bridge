@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeftRight, DollarSign } from 'lucide-react';
+import { ArrowLeftRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
@@ -83,7 +83,6 @@ const CurrencyConverter = () => {
   return (
     <div className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg animate-fade-in">
       <div className="flex flex-col items-center justify-center mb-6 text-center">
-        <DollarSign className="w-8 h-8 text-primary mb-2" />
         <h1 className="text-2xl font-bold text-primary">Smart and Powerful Converter</h1>
         <p className="text-gray-600 mt-2 text-sm">
           Effortlessly convert currencies with real-time rates and a user-friendly interface designed for convenience and accuracy.
