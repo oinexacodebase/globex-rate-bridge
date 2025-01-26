@@ -3,6 +3,7 @@ import { BarChart2, TrendingUp, LineChart, PieChart } from "lucide-react";
 import { LineChart as ReChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const MarketAnalysis = () => {
   const data = [
@@ -19,6 +20,7 @@ const MarketAnalysis = () => {
       <Navigation />
       <main className="flex-grow bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <BackButton />
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-primary mb-4">Market Analysis</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">

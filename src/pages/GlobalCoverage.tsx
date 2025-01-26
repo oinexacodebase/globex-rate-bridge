@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe2, Map, Languages, Building2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const GlobalCoverage = () => {
   const regions = [
@@ -32,6 +33,7 @@ const GlobalCoverage = () => {
       <Navigation />
       <main className="flex-grow bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <BackButton />
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-primary mb-4">Global Coverage</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">

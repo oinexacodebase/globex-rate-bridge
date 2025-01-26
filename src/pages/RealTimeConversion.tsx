@@ -3,6 +3,7 @@ import { DollarSign, ArrowRight, RefreshCcw } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const RealTimeConversion = () => {
   const { data: rates, isLoading } = useQuery({
@@ -23,6 +24,7 @@ const RealTimeConversion = () => {
       <Navigation />
       <main className="flex-grow bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <BackButton />
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-primary mb-4">Real-Time Currency Conversion</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
