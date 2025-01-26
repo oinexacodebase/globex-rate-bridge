@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, User, Mail, Flag } from 'lucide-react';
+import { Menu, User, Mail, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -54,14 +54,6 @@ const Navigation = () => {
               </SheetTrigger>
               <SheetContent side="right" className="bg-primary w-[250px] p-0">
                 <div className="flex flex-col h-full">
-                  <div className="p-4">
-                    <button
-                      onClick={() => setIsOpen(false)}
-                      className="text-white hover:text-gray-200"
-                    >
-                      <X className="h-6 w-6" />
-                    </button>
-                  </div>
                   <div className="flex flex-col space-y-4 p-4">
                     {menuItems.map((item) => (
                       <Link
