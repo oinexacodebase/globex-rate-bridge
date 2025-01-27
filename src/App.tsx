@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
+import Auth from "./pages/Auth";
 import RealTimeConversion from "./pages/RealTimeConversion";
 import MarketAnalysis from "./pages/MarketAnalysis";
 import GlobalCoverage from "./pages/GlobalCoverage";
@@ -21,6 +22,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/real-time-conversion" element={<RealTimeConversion />} />
           <Route path="/market-analysis" element={<MarketAnalysis />} />
           <Route path="/global-coverage" element={<GlobalCoverage />} />
