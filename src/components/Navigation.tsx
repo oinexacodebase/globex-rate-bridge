@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, User, Mail, Flag } from 'lucide-react';
+import { Menu, User, Mail, Flag, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -7,6 +7,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { icon: Home, text: 'Home', path: '/' },
     { icon: User, text: 'About Us', path: '/' },
     { icon: Mail, text: 'Contact', path: '/' },
     { icon: Flag, text: 'Report', path: '/' },
