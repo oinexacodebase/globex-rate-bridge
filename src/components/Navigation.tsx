@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Menu, User, Mail, Flag, Home } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,10 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { icon: Home, text: 'Home', path: '/' },
-    { icon: User, text: 'About Us', path: '/' },
-    { icon: Mail, text: 'Contact', path: '/' },
-    { icon: Flag, text: 'Report', path: '/' },
+    { text: 'Home', path: '/' },
+    { text: 'About Us', path: '/' },
+    { text: 'Contact', path: '/' },
+    { text: 'Report', path: '/' },
   ];
 
   return (
@@ -36,10 +36,9 @@ const Navigation = () => {
               <Link
                 key={item.text}
                 to={item.path}
-                className="text-white hover:text-gray-200 flex items-center gap-2"
+                className="text-white hover:text-gray-200"
               >
-                <item.icon className="h-4 w-4" />
-                <span>{item.text}</span>
+                {item.text}
               </Link>
             ))}
           </div>
@@ -62,11 +61,10 @@ const Navigation = () => {
                       <Link
                         key={item.text}
                         to={item.path}
-                        className="text-white hover:text-gray-200 flex items-center gap-3 p-2 rounded-md hover:bg-primary-light"
+                        className="text-white hover:text-gray-200 p-2 rounded-md hover:bg-primary-light"
                         onClick={() => setIsOpen(false)}
                       >
-                        <item.icon className="h-5 w-5" />
-                        <span>{item.text}</span>
+                        {item.text}
                       </Link>
                     ))}
                   </div>
@@ -81,3 +79,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

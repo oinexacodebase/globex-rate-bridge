@@ -137,7 +137,7 @@ const CurrencyConverter = () => {
 
         <Button 
           onClick={handleConvert}
-          className="w-full bg-primary hover:bg-primary-light"
+          className="w-full bg-primary hover:bg-primary-light text-white"
         >
           Convert
         </Button>
