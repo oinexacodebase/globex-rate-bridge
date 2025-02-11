@@ -10,9 +10,9 @@ const Navigation = () => {
 
   const menuItems = [
     { text: 'Home', path: '/' },
-    { text: 'About Us', path: '/' },
-    { text: 'Contact', path: '/' },
-    { text: 'Report', path: '/' },
+    { text: 'About Us', path: '/about-us' },
+    { text: 'Contact', path: '/contact' },
+    { text: 'Report', path: '/report' },
   ];
 
   return (
@@ -79,4 +79,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
