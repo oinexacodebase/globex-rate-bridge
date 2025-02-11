@@ -37,8 +37,9 @@ const Report = () => {
                 </label>
                 <select
                   id="type"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2"
+                  className="w-full rounded-md border border-input px-3 py-2"
                   required
+                  style={{ backgroundColor: '#DFDFDF' }}
                 >
                   <option value="">Select an issue type</option>
                   <option value="conversion">Conversion Error</option>
@@ -56,13 +57,20 @@ const Report = () => {
                   placeholder="Please describe the issue in detail"
                   className="min-h-[150px]"
                   required
+                  style={{ backgroundColor: '#DFDFDF' }}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Your Email
                 </label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  placeholder="your@email.com" 
+                  required 
+                  style={{ backgroundColor: '#DFDFDF' }}
+                />
               </div>
               <Button type="submit" className="w-full">
                 Submit Report

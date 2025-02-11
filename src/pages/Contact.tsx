@@ -31,13 +31,25 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
                 </label>
-                <Input id="name" type="text" placeholder="Your name" required />
+                <Input 
+                  id="name" 
+                  type="text" 
+                  placeholder="Your name" 
+                  required 
+                  style={{ backgroundColor: '#DFDFDF' }}
+                />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  placeholder="your@email.com" 
+                  required 
+                  style={{ backgroundColor: '#DFDFDF' }}
+                />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
@@ -48,6 +60,7 @@ const Contact = () => {
                   placeholder="How can we help you?"
                   className="min-h-[150px]"
                   required
+                  style={{ backgroundColor: '#DFDFDF' }}
                 />
               </div>
               <Button type="submit" className="w-full">
