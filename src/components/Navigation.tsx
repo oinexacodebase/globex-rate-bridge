@@ -22,7 +22,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/globex-logo.png" 
+                src="/globex-logo.ico" 
                 alt="Globex Logo" 
                 className="h-8 w-8"
               />
