@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -35,7 +36,6 @@ const CurrencyConverter = () => {
   const [result, setResult] = useState<string>('');
   const { toast } = useToast();
 
-  // Mock data for the chart - in a real app, this would come from an API
   const chartData = [
     { date: '2024-01', rate: 0.82 },
     { date: '2024-02', rate: 0.83 },
@@ -81,70 +81,72 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg animate-fade-in">
-      <div className="flex flex-col items-center justify-center mb-6 text-center">
-        <h1 className="text-2xl font-bold text-primary">Smart and Powerful Converter</h1>
-        <p className="text-gray-600 mt-2 text-sm">
+    <div className="w-full max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-xl animate-fade-in">
+      <div className="flex flex-col items-center justify-center mb-8 text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          Smart and Powerful Converter
+        </h1>
+        <p className="text-gray-600 text-base md:text-lg max-w-2xl">
           Effortlessly convert currencies with real-time rates and a user-friendly interface designed for convenience and accuracy.
         </p>
       </div>
 
-      <div className="space-y-4">
-        <div>
+      <div className="space-y-6 max-w-2xl mx-auto">
+        <div className="bg-gray-50 p-6 rounded-lg">
           <Input
             type="text"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount"
-            className="w-full"
+            className="text-lg h-14 mb-4"
           />
-        </div>
 
-        <div className="flex items-center justify-between">
-          <select
-            value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
-            className="w-36 p-2 border rounded"
-          >
-            {Object.entries(CURRENCIES).map(([code, name]) => (
-              <option key={code} value={code}>
-                {code} - {name}
-              </option>
-            ))}
-          </select>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <select
+              value={fromCurrency}
+              onChange={(e) => setFromCurrency(e.target.value)}
+              className="w-full md:w-[40%] p-3 text-lg border rounded-lg"
+            >
+              {Object.entries(CURRENCIES).map(([code, name]) => (
+                <option key={code} value={code}>
+                  {code} - {name}
+                </option>
+              ))}
+            </select>
 
-          <Button
-            onClick={handleSwap}
-            variant="outline"
-            size="icon"
-            className="mx-2"
-          >
-            <ArrowLeftRight className="h-4 w-4" />
-          </Button>
+            <Button
+              onClick={handleSwap}
+              variant="outline"
+              size="icon"
+              className="h-14 w-14"
+            >
+              <ArrowLeftRight className="h-6 w-6" />
+            </Button>
 
-          <select
-            value={toCurrency}
-            onChange={(e) => setToCurrency(e.target.value)}
-            className="w-36 p-2 border rounded"
-          >
-            {Object.entries(CURRENCIES).map(([code, name]) => (
-              <option key={code} value={code}>
-                {code} - {name}
-              </option>
-            ))}
-          </select>
+            <select
+              value={toCurrency}
+              onChange={(e) => setToCurrency(e.target.value)}
+              className="w-full md:w-[40%] p-3 text-lg border rounded-lg"
+            >
+              {Object.entries(CURRENCIES).map(([code, name]) => (
+                <option key={code} value={code}>
+                  {code} - {name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         <Button 
           onClick={handleConvert}
-          className="w-full bg-primary hover:bg-primary-light text-white"
+          className="w-full h-14 text-lg bg-primary hover:bg-primary-light text-white"
         >
           Convert
         </Button>
 
         {result && (
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-            <p className="text-center text-lg">
+          <div className="mt-6 p-6 bg-gray-50 rounded-lg">
+            <p className="text-center text-xl md:text-2xl">
               <span className="font-bold">{amount} {fromCurrency}</span>
               {" = "}
               <span className="font-bold text-primary">{result} {toCurrency}</span>
@@ -154,14 +156,14 @@ const CurrencyConverter = () => {
       </div>
 
       {/* Google Ads Container */}
-      <div className="mt-8 w-full h-[250px] bg-gray-100 rounded flex items-center justify-center">
+      <div className="mt-12 w-full h-[300px] bg-gray-100 rounded-lg flex items-center justify-center">
         <p className="text-gray-500">Google Ads Placeholder</p>
       </div>
 
       {/* Currency Rate Chart */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-primary mb-4">Exchange Rate History</h2>
-        <div className="w-full h-[300px]">
+      <div className="mt-12">
+        <h2 className="text-2xl font-semibold text-primary mb-6">Exchange Rate History</h2>
+        <div className="w-full h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -192,7 +194,7 @@ const CurrencyConverter = () => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="text-sm text-gray-500 mt-2 text-center">
+        <p className="text-sm text-gray-500 mt-4 text-center">
           6-month exchange rate history for {fromCurrency}/{toCurrency}
         </p>
       </div>
