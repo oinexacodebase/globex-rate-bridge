@@ -98,14 +98,14 @@ const CurrencyConverter = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount"
-            className="text-lg h-14 mb-4"
+            className="text-lg h-14 mb-4 focus:ring-gray-300 focus-visible:ring-gray-300"
           />
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <select
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-3 text-lg border rounded-lg"
+              className="w-full md:w-[40%] p-3 text-lg border rounded-lg focus:ring-gray-300 focus:border-gray-300 focus-visible:ring-gray-300"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
@@ -126,7 +126,7 @@ const CurrencyConverter = () => {
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-3 text-lg border rounded-lg"
+              className="w-full md:w-[40%] p-3 text-lg border rounded-lg focus:ring-gray-300 focus:border-gray-300 focus-visible:ring-gray-300"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
