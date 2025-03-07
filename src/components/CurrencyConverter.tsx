@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const CURRENCIES = {
   USD: "US Dollar",
-  EUR: "Euro",
+  EUR: "Euro", 
   GBP: "British Pound",
   JPY: "Japanese Yen",
   AUD: "Australian Dollar",
@@ -56,7 +55,6 @@ const CurrencyConverter = () => {
     }
 
     try {
-      // For demo purposes, using a fixed rate. In production, you'd use a real API
       const rate = 0.85;
       const converted = (Number(amount) * rate).toFixed(2);
       setResult(converted);
@@ -98,14 +96,14 @@ const CurrencyConverter = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount"
-            className="text-base sm:text-lg h-12 sm:h-14 mb-3 sm:mb-4 focus:ring-gray-300 focus-visible:ring-gray-300"
+            className="text-base sm:text-lg h-12 sm:h-14 mb-3 sm:mb-4 focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:border-primary-light focus-visible:outline-primary-light"
           />
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
             <select
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-gray-300 focus:border-gray-300 focus-visible:ring-gray-300"
+              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
@@ -118,7 +116,7 @@ const CurrencyConverter = () => {
               onClick={handleSwap}
               variant="outline"
               size="icon"
-              className="h-10 w-10 sm:h-14 sm:w-14"
+              className="h-10 w-10 sm:h-14 sm:w-14 focus:ring-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
             >
               <ArrowLeftRight className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
@@ -126,7 +124,7 @@ const CurrencyConverter = () => {
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-gray-300 focus:border-gray-300 focus-visible:ring-gray-300"
+              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
@@ -139,7 +137,7 @@ const CurrencyConverter = () => {
 
         <Button 
           onClick={handleConvert}
-          className="w-full h-12 sm:h-14 text-base sm:text-lg bg-primary hover:bg-primary-light text-white"
+          className="w-full h-12 sm:h-14 text-base sm:text-lg bg-primary hover:bg-primary-light text-white focus:ring-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
         >
           Convert
         </Button>
@@ -155,12 +153,10 @@ const CurrencyConverter = () => {
         )}
       </div>
 
-      {/* Google Ads Container */}
       <div className="mt-8 sm:mt-12 w-full h-[200px] sm:h-[300px] bg-gray-100 rounded-lg flex items-center justify-center">
         <p className="text-gray-500">Google Ads Placeholder</p>
       </div>
 
-      {/* Currency Rate Chart */}
       <div className="mt-8 sm:mt-12">
         <h2 className="text-xl sm:text-2xl font-semibold text-primary mb-4 sm:mb-6">Exchange Rate History</h2>
         <div className="w-full h-[300px] sm:h-[400px]">
