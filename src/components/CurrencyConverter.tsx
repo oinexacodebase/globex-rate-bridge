@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -103,7 +104,7 @@ const CurrencyConverter = () => {
             <select
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
+              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light bg-[#90B59B]"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
@@ -124,7 +125,7 @@ const CurrencyConverter = () => {
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value)}
-              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light"
+              className="w-full md:w-[40%] p-2 sm:p-3 text-base sm:text-lg border rounded-lg focus:ring-primary-light focus:border-primary-light focus-visible:ring-primary-light focus-visible:outline-primary-light bg-[#90B59B]"
             >
               {Object.entries(CURRENCIES).map(([code, name]) => (
                 <option key={code} value={code}>
