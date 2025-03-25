@@ -10,7 +10,10 @@ const Footer = () => {
             <a href="#" className="text-white hover:text-gray-200">Contact</a>
           </div>
           <div className="text-white">
-            © {new Date().getFullYear()} CurrencyConverter. All rights reserved.
+            © {new Date().getFullYear()} globex. All rights reserved.
+          </div>
+          <div className="text-white text-sm mt-2">
+            Powered by Avodstudio
           </div>
         </div>
       </div>
