@@ -43,8 +43,8 @@ Globex Currency Converter is a responsive web application that allows users to c
 ### Installation
 
 1. Clone the repository:
-   ```bash
-  Download Project
+    ```bash
+   download project firts
    ```
 
 2. Install dependencies:
