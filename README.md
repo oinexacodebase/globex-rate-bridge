@@ -1,5 +1,5 @@
 
-# Globex Currency Converter
+# Globex Rate bridge - Currency Converter WPA
 
 A modern currency converter web application built with React, TypeScript, and Tailwind CSS, with Supabase as the backend service.
 
