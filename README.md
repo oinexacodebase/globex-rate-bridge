@@ -32,6 +32,46 @@ Globex Currency Converter is a responsive web application that allows users to c
 - Comprehensive market analysis and reports
 - Global currency coverage
 
+## Developer Setup Guide
+
+### Prerequisites
+
+- Node.js (v18+)
+- npm/yarn/bun
+- Supabase account
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/globex-currency-converter.git
+   cd globex-currency-converter
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   bun install
+   ```
+
+3. Create a Supabase project from the [Supabase Dashboard](https://app.supabase.com)
+
+4. Set up the database schema and functions (instructions below)
+
+5. Update the Supabase URL and key in `src/integrations/supabase/client.ts`
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   bun dev
+   ```
+
 ## Project Structure
 
 ```
@@ -61,15 +101,9 @@ src/
 
 ## Supabase Integration
 
-The application uses Supabase for backend services, including:
-- Database storage for exchange rates
-- User authentication (for premium features)
-- Storing conversion history
-- Real-time updates for currency rates
+### Database Schema
 
-### Supabase Schema
-
-To set up the database, execute the following SQL in your Supabase SQL editor:
+To set up your Supabase database, run the following SQL in the Supabase SQL Editor:
 
 ```sql
 -- Currency Table
@@ -134,9 +168,14 @@ INSERT INTO currencies (code, name, symbol) VALUES
 ('ZAR', 'South African Rand', 'R'),
 ('BRL', 'Brazilian Real', 'R$'),
 ('TRY', 'Turkish Lira', '₺');
+```
 
+### Row Level Security (RLS)
+
+To secure your Supabase tables, run the following SQL:
+
+```sql
 -- Row Level Security Policies
--- Allow public read access to currencies and exchange rates
 ALTER TABLE currencies ENABLE ROW LEVEL SECURITY;
 ALTER TABLE exchange_rates ENABLE ROW LEVEL SECURITY;
 ALTER TABLE historical_rates ENABLE ROW LEVEL SECURITY;
@@ -168,12 +207,19 @@ CREATE POLICY "Allow authenticated users to insert their conversion history"
   WITH CHECK (auth.uid() = user_id);
 ```
 
-### Supabase Functions
+### Supabase Edge Function
 
-To implement automatic rate updates, create the following Supabase Edge Function:
+Create an Edge Function to automatically update currency rates:
+
+1. Install the Supabase CLI
+2. Create a new Edge Function:
+   ```bash
+   supabase functions new updateRates
+   ```
+
+3. Add the following code to `supabase/functions/updateRates/index.ts`:
 
 ```typescript
-// updateRates.ts edge function
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
@@ -255,47 +301,107 @@ serve(async (req) => {
 });
 ```
 
-Set up a cron job to run this function every hour.
+4. Deploy the function:
+   ```bash
+   supabase functions deploy updateRates
+   ```
 
-## Environment Setup
+5. Set up a scheduled CRON job in the Supabase dashboard to run this function daily.
 
-To integrate with Supabase:
+## API Integration
 
-1. Create a Supabase project from [Supabase Dashboard](https://app.supabase.com)
-2. Execute the SQL commands provided above in the SQL Editor
-3. Create the Edge Function for automated rate updates
-4. In the Supabase project settings, note your project URL and anon key
-5. Make sure these values match the ones in `src/integrations/supabase/client.ts`
+The application integrates with Supabase for database operations and can be extended to use external currency API services like:
 
-## Local Development
+- [ExchangeRate-API](https://www.exchangerate-api.com/)
+- [Open Exchange Rates](https://openexchangerates.org/)
+- [Fixer.io](https://fixer.io/)
+
+To implement a real API integration:
+
+1. Obtain an API key from your chosen provider
+2. Store the API key in Supabase secrets
+3. Update the Edge Function to use your API key
+4. Modify the `LiveRates.tsx` and `CurrencyConverter.tsx` components to fetch real data
+
+## Component Architecture
+
+Each component in the project follows a single responsibility principle:
+
+- **CurrencyConverter.tsx**: Core conversion functionality
+- **LiveRates.tsx**: Display of current exchange rates
+- **Features.tsx**: Marketing features showcase
+- **Navigation.tsx**: Main navigation header
+- **Footer.tsx**: Page footer with copyright information
+
+## Testing
+
+### Unit Testing
+
+1. Install testing dependencies:
+   ```bash
+   npm install --save-dev vitest @testing-library/react @testing-library/jest-dom
+   ```
+
+2. Create test files in a `__tests__` folder or with `.test.tsx` suffix
+
+3. Run tests:
+   ```bash
+   npm run test
+   ```
+
+### End-to-End Testing
+
+1. Install Playwright:
+   ```bash
+   npm install --save-dev @playwright/test
+   ```
+
+2. Create E2E tests in the `e2e` directory
+
+3. Run E2E tests:
+   ```bash
+   npx playwright test
+   ```
+
+## Build and Deployment
+
+### Build for Production
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-
-# Navigate to project directory
-cd globex-currency-converter
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-The development server will be available at http://localhost:5173
-
-## Building for Production
-
-```bash
-# Build the project
 npm run build
-
-# Preview the production build
-npm run preview
+# or
+yarn build
+# or
+bun build
 ```
 
-## Further Enhancements
+The build output will be in the `dist` directory.
+
+### Deployment Options
+
+1. **Vercel/Netlify**: Connect your repository for CI/CD deployment
+2. **Static Hosting**: Upload the `dist` directory to any static hosting service
+3. **Docker**: A Dockerfile is provided to containerize the application
+
+## Environment Variables
+
+Create a `.env` file in the project root with the following variables:
+
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_CURRENCY_API_KEY=your_currency_api_key (optional)
+```
+
+## Contributing Guidelines
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add some amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## Future Enhancements
 
 - Implement authentication for saving conversion history
 - Add more detailed historical charts with date range selection
@@ -306,4 +412,4 @@ npm run preview
 
 ## License
 
-All rights reserved. © 2024 Globex. Powered by Avodstudio.
+All rights reserved. © 2024 Globex. Powered by Avodstudio, developed by Mohamed Frank.
