@@ -3,6 +3,9 @@
 
 A modern currency converter web application built with React, TypeScript, and Tailwind CSS, with Supabase as the backend service.
 
+![glabex rate image](public/glo-image.png)
+
+
 ## Project Overview
 
 Globex Currency Converter is a responsive web application that allows users to convert between different currencies with real-time exchange rates. The application features a clean and intuitive user interface, live rate updates, and historical exchange rate data visualization.
@@ -411,4 +414,17 @@ VITE_CURRENCY_API_KEY=your_currency_api_key (optional)
 
 ## License
 
-All rights reserved. © 2024 Globex. Powered by Avodstudio, developed by Mohamed Frank.
+This project is licensed under the GPL License - see the LICENSE file for details.
+
+
+## ✨ Credits
+
+Designed and developed by [Avodstudio](https://avodstudio.com)
+
+## 📧 Contact
+
+For any inquiries, please reach out through the contact form on our website.
+
+---
+
+Made with ❤️ by Avodstudio | developed by Mohamed||Frank
