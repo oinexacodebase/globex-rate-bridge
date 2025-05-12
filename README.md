@@ -44,8 +44,7 @@ Globex Currency Converter is a responsive web application that allows users to c
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/globex-currency-converter.git
-   cd globex-currency-converter
+  Download Project
    ```
 
 2. Install dependencies:
