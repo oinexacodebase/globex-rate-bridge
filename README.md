@@ -3,7 +3,7 @@
 
 A modern currency converter web application built with React, TypeScript, and Tailwind CSS, with Supabase as the backend service.
 
-![glabex rate image](public/glo-image.png)
+![glabex rate image](public/og-image.png)
 
 
 ## Project Overview
